@@ -1,0 +1,260 @@
+body{
+    background-color: #FAFAF5;
+    overflow-x: hidden;
+    margin: 0;
+    font-family: 'Ubuntu', sans-serif;
+    user-select: none;
+}
+
+.navbar{
+    background-color: #121212;
+    text-transform: uppercase;
+    font-family: 'Ubuntu', sans-serif;
+    z-index: 3;
+}
+.navbar svg{
+    width: 2em;
+    fill: white;
+}
+.navbar ul{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style-type: none;
+    margin: 0;
+    padding: 20px;
+}
+.navbar ul li{
+    transition: transform 0.5s ease-in-out;
+}
+.navbar ul li:hover{
+    transform: scale(1.2);
+}
+.navbar a{
+    position: relative;
+    color: #FAFAF5;
+    text-decoration: none;
+    padding: 5px;
+}
+.navbar a::before{
+    position: absolute;
+    content: "";
+    width: 0%;
+    height: 5%;
+    background-color: #FAFAF5;
+    bottom: 0;
+    left: 0;
+    transition: width 0.5s ease-in-out;
+}
+.navbar a:hover::before{
+    width: 100%;
+}
+#active{
+    position: relative;
+    padding: 5px;
+}
+#active::before{
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 5%;
+    background-color: #FAFAF5;
+    bottom: 0;
+    left: 0;
+    transition: width 0.5s ease-in-out;
+}
+#active:hover::before{
+    width: 25%;
+}
+/* Összefoglalók felé tegye a vonalat */
+.biglink::before {
+    top: 0;
+}
+.dropdownOne{
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    min-width: 10em;
+    padding: 0.5em 2em;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    background-color: #121212;
+    z-index: 1;
+}
+.navitem:hover .dropdownOne{
+    display: flex;
+}
+/* Dropdownmenu active eleme mellé tegye a vonalat */
+.dropdownOne #active::before{
+    width: 1%;
+    height: 100%;
+    background-color: red;
+    transition: height 0.5s ease-in-out;
+}
+.dropdownOne #active:hover::before{
+    height: 40%;
+}
+.dropdownOne a::before{
+    background-color: red;
+}
+
+.flex-container-end,
+.flex-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 10%;
+}
+
+h1{
+    text-decoration: underline red;
+}
+.empty h3{
+    margin: 0;
+}
+
+span{
+    color: red;
+    text-decoration: underline red;
+    font-style: bold;
+}
+
+.empty{
+    display: flex;
+    align-items: center;
+    width: 25%;
+    height: 10vh;
+    border: 3px dashed black;
+    padding: 1%;
+    box-shadow: 2px 2px 100px grey;
+}
+
+.answers{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    min-width: 100%;
+    min-height: 100%;
+    margin: auto;
+    margin-top: 7%;
+    font-size: 130%;
+}
+.answer{
+    visibility: visible;
+}
+
+.invisible{
+    visibility: hidden;
+}
+.hovered{
+    border: 3px solid red;
+}
+.button{
+    display: flex;
+    justify-content: center;
+    margin-top: 1%;
+}
+
+.btn {
+    text-transform: uppercase;
+    color: rgb(27, 27, 27);
+    padding: 10px 30px;
+    border: 1px solid;
+    border-radius: 1000px;
+    display: inline-block;
+    transition: all .2s;
+    position: relative;
+}
+
+.btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(27, 27, 27, .5);
+}
+
+.btn:active {
+    transform: translateY(-3px);
+}
+
+.btn::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    top: 0;
+    left: 0;
+    position: absolute;
+    z-index: -1;
+    transition: all .3s;
+}
+
+.btn:hover::after {
+    background-color: red;
+    transform: scaleX(1.4) scaleY(1.5);
+    opacity: 0;
+}
+
+footer{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 15vh;
+    width: 100vw;
+    margin-top: 3%;
+    background-color: #121212;
+    color: #FAFAF5;
+}
+footer h2{
+    margin: 0;
+    padding: 0;
+}
+
+
+/* valaszok.html */
+
+.flex-container-end{
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    width: 100vw;
+    height: fit-content;
+}
+
+#list{
+    min-width: 75%;
+    text-align: center;
+    list-style-type: none;
+    height: 20%;
+}
+#list span{
+    color: black;
+    text-decoration: none;
+}
+#list h3{
+    font-weight: normal;
+}
+#list b:last-of-type{
+    margin-right: 4%;
+}
+.wrong,
+.right{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    margin: 2%;
+}
+.spacer{
+    margin: 2%;
+}
+.spacer{
+    background: none;
+}
+.right{
+    background-color: green;
+}
+.wrong{
+    background-color: red;
+}
+.divider{
+    margin: 2%;
+}

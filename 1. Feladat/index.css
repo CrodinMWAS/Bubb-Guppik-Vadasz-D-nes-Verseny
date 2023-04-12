@@ -1,0 +1,256 @@
+body{
+    margin: 0;
+    text-align: center;
+    overflow-x: hidden;
+    background-color: #FAFAF5;
+    color: #121212;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.navbar{
+    background-color: #121212;
+    text-transform: uppercase;
+    font-family: 'Ubuntu', sans-serif;
+    z-index: 3;
+}
+.navbar svg{
+    width: 2em;
+    fill: white;
+}
+.navbar ul{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style-type: none;
+    margin: 0;
+    padding: 20px;
+}
+.navbar ul li{
+    transition: transform 0.5s ease-in-out;
+}
+.navbar ul li:hover{
+    transform: scale(1.2);
+}
+.navbar a{
+    position: relative;
+    color: #FAFAF5;
+    text-decoration: none;
+    padding: 5px;
+}
+.navbar a::before{
+    position: absolute;
+    content: "";
+    width: 0%;
+    height: 5%;
+    background-color: #FAFAF5;
+    bottom: 0;
+    left: 0;
+    transition: width 0.5s ease-in-out;
+}
+.navbar a:hover::before{
+    width: 100%;
+}
+#active{
+    position: relative;
+    padding: 5px;
+}
+#active::before{
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 5%;
+    background-color: #FAFAF5;
+    bottom: 0;
+    left: 0;
+    transition: width 0.5s ease-in-out;
+}
+#active:hover::before{
+    width: 25%;
+}
+/* Összefoglalók felé tegye a vonalat */
+.biglink::before {
+    top: 0;
+}
+.dropdownOne{
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    min-width: 10em;
+    padding: 0.5em 2em;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    background-color: #121212;
+    z-index: 1;
+}
+.navitem:hover .dropdownOne{
+    display: flex;
+}
+/* Dropdownmenu active eleme mellé tegye a vonalat */
+.dropdownOne #active::before{
+    width: 1%;
+    height: 100%;
+    background-color: red;
+    transition: height 0.5s ease-in-out;
+}
+.dropdownOne #active:hover::before{
+    height: 40%;
+}
+.dropdownOne a::before{
+    background-color: red;
+}
+
+
+
+.timeline {
+    margin-top: 6%;
+    position: relative;
+    max-width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 0.4em;
+    background-color: #333;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    box-sizing: border-box;
+}
+
+.container{
+    padding: 10px 40px;
+    position: relative;
+    background-color: inherit;
+    width: 50%;
+    box-sizing: border-box;
+    transition: transform 1.2s ease-in-out;
+}
+.content:hover{
+    cursor: pointer;
+}
+.left .content:hover{
+    box-shadow: -20px 20px 40px grey;
+}
+.right .content:hover{
+    box-shadow: 20px 20px 40px grey;
+}
+
+.container::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    right: -1em;
+    background-color: white;
+    border: 4px solid red;
+    top: 15px;
+    border-radius: 50%;
+    z-index: 1;
+    box-sizing: border-box;
+}
+
+.left {
+    left: 0;
+    box-sizing: border-box;
+}
+
+.right {
+    left: 50%;
+    box-sizing: border-box;
+}
+
+.left::before {
+    content: " ";
+    height: 0;
+    position: absolute;
+    top: 22px;
+    width: 0;
+    z-index: 1;
+    right: 30px;
+    border: medium solid white;
+    border-width: 10px 0 10px 10px;
+    border-color: transparent transparent transparent #333;
+    box-sizing: border-box;
+}
+
+.right::before {
+    content: " ";
+    height: 0;
+    position: absolute;
+    top: 22px;
+    width: 0;
+    z-index: 1;
+    left: 30px;
+    border: medium solid white;
+    border-width: 10px 10px 10px 0;
+    border-color: transparent #333 transparent transparent;
+    box-sizing: border-box;
+}
+
+.right::after {
+    left: -0.6em;
+    box-sizing: border-box;
+}
+
+.content {
+    padding: 20px 30px;
+    background-color: #333;
+    position: relative;
+    border-radius: 6px;
+    box-sizing: border-box;
+    color: #FAFAF5;
+}
+
+@media screen and (max-width: 600px) {
+    /* Place the timelime to the left */
+    .timeline::after {
+    left: 31px;
+    }
+    
+    /* Full-width containers */
+    .container {
+    width: 100%;
+    padding-left: 70px;
+    padding-right: 25px;
+    }
+    
+    /* Make sure that all arrows are pointing leftwards */
+    .container::before {
+    left: 60px;
+    border: medium solid white;
+    border-width: 10px 10px 10px 0;
+    border-color: transparent white transparent transparent;
+    }
+  
+    /* Make sure all circles are at the same spot */
+    .left::after, .right::after {
+    left: 15px;
+    }
+    
+    /* Make all right containers behave like the left ones */
+    .right {
+    left: 0%;
+    }
+
+    .content:hover{
+        box-shadow: 20px 20px 40px grey !important;
+    }
+}
+
+  
+footer{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 15vh;
+    width: 100vw;
+    margin-top: 3%;
+    background-color: #121212;
+    color: #FAFAF5;
+}
+footer h2{
+    margin: 0;
+    padding: 0;
+}
